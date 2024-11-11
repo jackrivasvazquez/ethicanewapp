@@ -6,6 +6,7 @@ import CreateAccount from './pages/CreateAccount';
 import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 import AskQuestion from './pages/AskQuestion';
+import ForgotPassword from './pages/ForgotPassword'; 
 import './pages/App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/ask-question" element={<AskQuestion />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} /> 
         </Routes>
       </div>
     </Router>
