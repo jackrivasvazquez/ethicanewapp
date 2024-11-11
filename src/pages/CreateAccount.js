@@ -40,23 +40,11 @@ const NavLink = styled(Link)`
   }
 `;
 
-// const Container = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   height: 100vh;
-//   text-align: center;
-//   background-color: ${colors.background};
-//   padding-top: 20px; /* Offset for fixed navbar */
-// `;
-
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 200px; /* Offset for the fixed navbar */
+  padding-top: 200px;
   background-color: ${colors.background};
   min-height: 100vh;
 `;
@@ -67,7 +55,7 @@ const FormContainer = styled.div`
   gap: ${spacing.medium};
   width: 100%;
   max-width: 400px; /* Consistent max-width for centering */
-  align-items: stretch; /* Ensure children take full width */
+  align-items: stretch;
 `;
 
 const Title = styled.h2`
@@ -78,8 +66,10 @@ const Title = styled.h2`
 
 const Input = styled.input`
   padding: 10px;
-  width: 100%; /* Full width inside FormContainer */
-  box-sizing: border-box; /* Ensures padding is included in width */
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%; /* Full width without restriction */
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
@@ -89,8 +79,8 @@ const Button = styled.button`
   background-color: ${colors.primary};
   color: white;
   padding: 10px;
-  width: 100%; /* Full width inside FormContainer */
-  box-sizing: border-box; /* Ensures padding is included in width */
+  width: 100%;
+  box-sizing: border-box;
   border: none;
   border-radius: 5px;
   cursor: pointer;
