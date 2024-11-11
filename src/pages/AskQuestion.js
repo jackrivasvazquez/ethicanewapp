@@ -149,6 +149,7 @@ function App() {
         <NavLink to="/create-account">Create Account</NavLink>
         <NavLink to="/login">Log In</NavLink>
         <NavLink to="/about-us">About Us</NavLink>
+        <NavLink to="/ask-question">Ask Questions</NavLink>
       </NavBar>
 
       <Title>Ask an Ethical Question!</Title>
@@ -164,9 +165,9 @@ function App() {
       </form>
       {loading ? <p>Loading...</p> : <p>{response}</p>}
 
-      <Button onClick={handleBackToAboutUs}>
+      {/* <Button onClick={handleBackToAboutUs}>
         Return to About Us
-      </Button>
+      </Button> */}
     </Container>
   );
 }

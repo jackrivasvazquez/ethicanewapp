@@ -44,7 +44,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px; /* Offset for the fixed navbar */
+  padding-top: 200px;
   background-color: ${colors.background};
   min-height: 100vh;
 `;
@@ -88,36 +88,27 @@ const ForgotPasswordLink = styled.button`
   font-size: 1em;
   text-decoration: underline;
   margin-top: ${spacing.small};
+  outline: none;
 
   &:hover {
     color: ${colors.secondary};
+    background: none;
   }
 `;
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [forgotPassword, setForgotPassword] = useState(false);
-  const [newPassword, setNewPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // Simulate login logic here (you can replace with actual authentication logic)
     alert(`Logged in with email: ${email}`);
-    navigate('/about-us'); // Navigate to the About Us page after login
+    navigate('/about-us');
   };
 
   const handleForgotPasswordClick = () => {
-    setForgotPassword(true);
-  };
-
-  const handlePasswordReset = () => {
-    // Handle the password reset logic
-    alert(`Password reset to: ${newPassword}`);
-    setForgotPassword(false);
-    setNewPassword('');
-    setEmail(''); // Clear the email input after reset
+    navigate('/forgot-password'); // Navigate to the ForgotPassword page
   };
 
   return (
@@ -150,27 +141,6 @@ function Login() {
       <ForgotPasswordLink onClick={handleForgotPasswordClick}>
         Forgot Password?
       </ForgotPasswordLink>
-
-      {forgotPassword && (
-        <div style={{ marginTop: spacing.medium }}>
-          <h3>Reset Password</h3>
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-          <Input
-            type="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            placeholder="Enter new password"
-            required
-          />
-          <Button onClick={handlePasswordReset}>Reset Password</Button>
-        </div>
-      )}
     </Container>
   );
 }

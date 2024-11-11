@@ -13,6 +13,7 @@ const spacing = {
   small: '10px',
   medium: '20px',
   large: '30px',
+  extraLarge: '40px',
 };
 
 const NavBar = styled.div`
@@ -44,26 +45,41 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px; /* Offset for the fixed navbar */
+  padding-top: ${spacing.extraLarge};
   background-color: ${colors.background};
   min-height: 100vh;
 `;
 
 const Title = styled.h2`
   font-size: 2.5em;
-  margin-bottom: ${spacing.large};
+  margin-bottom: ${spacing.small};
   color: ${colors.primary};
+`;
+
+const IntroText = styled.p`
+  margin-bottom: 2px; /* Reduced spacing between lines */
+  text-align: center;
+`;
+
+const IntroTextBottom = styled.p`
+  margin-bottom: ${spacing.extraLarge}; /* Increased spacing before photos */
+  text-align: center;
 `;
 
 const TeamProfileContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
   gap: ${spacing.large};
   margin-bottom: ${spacing.large};
+  width: 80%;
 `;
 
 const TeamMember = styled.div`
   text-align: center;
+  flex: 1 1 300px;
+  max-width: 300px;
+  line-height: 1.6;
 `;
 
 const ProfileImage = styled.img`
@@ -82,7 +98,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
-  margin-top: ${spacing.large};
+  margin-top: ${spacing.small};
 
   &:hover {
     background-color: ${colors.secondary};
@@ -102,12 +118,14 @@ function AboutUs() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/create-account">Create Account</NavLink>
         <NavLink to="/login">Log In</NavLink>
+        <NavLink to="/about-us">About Us</NavLink>
+        <NavLink to="/ask-question">Ask Questions</NavLink>
       </NavBar>
 
       <Title>Team Profile</Title>
       
-      <p>Welcome to Ethica: Your Ethical Question Asker</p>
-      <p>This page is dedicated to introducing the amazing team behind Ethica!</p>
+      <IntroText>Welcome to Ethica: Your Ethical Question Asker</IntroText>
+      <IntroTextBottom>This page is dedicated to introducing the amazing team behind Ethica!</IntroTextBottom>
       
       <TeamProfileContainer>
         <TeamMember>
@@ -130,6 +148,3 @@ function AboutUs() {
 }
 
 export default AboutUs;
-
-
-

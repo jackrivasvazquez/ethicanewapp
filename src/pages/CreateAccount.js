@@ -15,7 +15,6 @@ const spacing = {
   large: '30px',
 };
 
-// Define the NavBar styled component
 const NavBar = styled.div`
   width: 100%;
   padding: ${spacing.small};
@@ -41,15 +40,25 @@ const NavLink = styled(Link)`
   }
 `;
 
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+//   text-align: center;
+//   background-color: ${colors.background};
+//   padding-top: 20px; /* Offset for fixed navbar */
+// `;
+
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
+  padding-top: 200px; /* Offset for the fixed navbar */
   background-color: ${colors.background};
-  padding-top: 60px; /* Offset for fixed navbar */
+  min-height: 100vh;
 `;
 
 const FormContainer = styled.div`
@@ -57,7 +66,8 @@ const FormContainer = styled.div`
   flex-direction: column;
   gap: ${spacing.medium};
   width: 100%;
-  max-width: 400px;
+  max-width: 400px; /* Consistent max-width for centering */
+  align-items: stretch; /* Ensure children take full width */
 `;
 
 const Title = styled.h2`
@@ -68,7 +78,8 @@ const Title = styled.h2`
 
 const Input = styled.input`
   padding: 10px;
-  width: 100%;
+  width: 100%; /* Full width inside FormContainer */
+  box-sizing: border-box; /* Ensures padding is included in width */
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
@@ -78,6 +89,8 @@ const Button = styled.button`
   background-color: ${colors.primary};
   color: white;
   padding: 10px;
+  width: 100%; /* Full width inside FormContainer */
+  box-sizing: border-box; /* Ensures padding is included in width */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -96,7 +109,7 @@ function CreateAccount() {
     email: '',
     password: '',
   });
-  const [isSignedUp, setIsSignedUp] = useState(false); // State to track sign-up success
+  const [isSignedUp, setIsSignedUp] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -106,8 +119,7 @@ function CreateAccount() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate successful sign-up process (you'd replace this with actual sign-up logic)
-    setIsSignedUp(true); // Set sign-up state to true after successful sign-up
+    setIsSignedUp(true);
   };
 
   return (
