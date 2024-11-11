@@ -112,7 +112,7 @@ function App() {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer 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`, // Replace with your OpenAI API key
+            Authorization: `Bearer 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`, // Replace with your OpenAI API key
           },
         }
       );
